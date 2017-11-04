@@ -1,11 +1,12 @@
 import java.util.Scanner;
 
 /*Definiți o interfață PiesaDeSah, ce definește prototipul funcției muta().
- *  Creați clasele aferente tipurilor distincte de piese de sah și implementați metoda muta
- *   conform regulilor de mișcare a pieselor pe tabla de șah. Metoda are ca parametri de intrare 
+ *  Creați clasele aferente tipurilor distincte de piese de sah și implementați metoda mutaautor
+ *   lutschconform regulilor de mișcareraul a pieselor pe tabla de șah. Metoda are ca parametri de intrare 
  *   poziția curentă a piesei și direcția de deplasare dată prin
  *    coordonate geografice (N,S,E,V,NE,NV, SE,SV) și returnează poziția finală.
  *     Atenție la piesele ce pot să se deplaseze mai mult de o căsută pe tabla de șah.*/
+
 
 public interface PiesaDeSah {
 	public char[][] muta(int PosX, int PoxY, String dir, char matrix[][]);
