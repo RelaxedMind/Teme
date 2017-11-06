@@ -57,43 +57,43 @@ public class Calculator {
 			
 			int j=0;
 			int mare;
-			int rez[]= new int[10];
-			char car[] = new char[10];
-			boolean vizible = false; //daca caracterul ascii e vizibil il afiseaza, daca nu il afiseaza in zecimal
+			int rez[]= new int[100];
+			char car[] = new char[100];
 			String tot = new String();
 			
-			if(str1.length() >= str2.length())
-				
-				mare =str1.length();
-			else
-				mare = str2.length();
+			if(str2.length()> str1.length())
+				System.out.println("Sirul al doilea nu poate fi mai amre decat primul");
 			
-			for(int i = 0; i<mare;i++)
+			for(int i = 0; i<str1.length();i++)
 			{
 				if (j < str2.length())
 				{
 					
 				rez[i] = ((int)str1.charAt(i)-(int)str2.charAt(j)); //afiseaza codul ascii
 				j++;
-				}
+				
+				}	
+				else
+					rez[i] = (int)str1.charAt(i);
+			
+																		//zzzzaAddzzee", "ABCDzz"
 				if(rez[i] >31 && rez[i] < 126) //coduri ascii vizibile
-					vizible = true;
+			
+				{
+					car[i] = (char)rez[i];
+					tot =tot+"|"+car[i];
+					
+				}
 				
 				else
 				{	
-					rez[i] = ((int)str1.charAt(i));
+					rez[i] = ((int)str1.charAt(i));			//toate caracterele vizibile
+					tot =tot+"|"+rez[i];
 					
 				}
 				
-				if(vizible)
-				{
-					
-					car[i] = (char)rez[i];
-						
-		
-				}														//am pus sa se vada codul ascii in int deoarece in char nu sunt
-																		//toate caracterele vizibile
-				tot =tot+"|"+rez[i];
+																//am pus sa se vada codul ascii in int deoarece in char nu sunt
+										
 			
 		}														
 			
@@ -139,13 +139,13 @@ public class Calculator {
 			if(a instanceof Integer &&  b instanceof Integer)
 			{
 			
-			imp =(T)new Integer(((Integer) a).intValue() * ((Integer) b).intValue()); 
+			imp =(T)new Integer(((Integer) a).intValue() / ((Integer) b).intValue()); 
 			}
 			
 			if(a instanceof Float &&  b instanceof Float)
 			{
 			
-			imp =(T)new Float(((Float) a).floatValue() * ((Float) b).floatValue()); 
+			imp =(T)new Float(((Float) a).floatValue() / ((Float) b).floatValue()); 
 			}
 			
 			
@@ -172,11 +172,17 @@ class Ex02{
 			System.out.println("Adunare Float: " +calc.adunare((float)3.14,(float)2.24));
 			System.out.println("Adunare String: " +calc.adunare("Ana", "Maria"));
 			
-			System.out.println("Scadere Int: " +calc.scadere(3, 4));
+			System.out.println("\nScadere Int: " +calc.scadere(3, 4));
 			System.out.println("Scadere Float: " +calc.scadere((float)3.14,(float)2.24));
-			System.out.println("Scadere String(Intregi): " +calc.scadere("AAsAzzyz", "fdss")); //stringul 2 trebuie sa fie mai mare decat 1
+			System.out.println("Scadere String(Intregi): " +calc.scadere("zazza321escS", "ABCDzz")); //stringul 2 trebuie sa fie mai mare decat 1
 																						//nu exista caractere ascii negative
 			
+			System.out.println("\nImpartire Int: " +calc.impartire(4, 4));
+			System.out.println("Impartire Float: " +calc.impartire((float)3.14,(float)2.24));
+			System.out.println("Impartire String: " +calc.impartire("Ana", "Maria"));
 			
+			System.out.println("\nInmultire Int: " +calc.inmultire(3, 4));
+			System.out.println("Inmultire Float: " +calc.inmultire((float)3.14,(float)2.24));
+			System.out.println("Inmultire String: " +calc.inmultire("Ana", "Maria"));
 		}
 }
